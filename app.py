@@ -35,21 +35,25 @@ def push_to_github(file_path):
     except Exception as e:
         return False, f"GitHub Sync Error: {str(e)}"
 
-# --- Helper Function to Load Data ---
-@st.cache_data(ttl=2) 
+# --- Helper Function to Load Data (CACHE REMOVED FOR STABILITY) ---
 def load_data():
-    if os.path.exists(DATA_FILE):
+    # Check if file exists AND is not empty
+    if os.path.exists(DATA_FILE) and os.path.getsize(DATA_FILE) > 0:
         return pd.read_csv(DATA_FILE)
     else:
-        return pd.DataFrame(columns=[
+        # If file doesn't exist, create it with headers to establish the database
+        df = pd.DataFrame(columns=[
             "Date", "Day", "Time", "Department", "Reported By", "System ID", 
             "Description", "Problem", "Action", "Parts", "IT Staff", "Status", "Remarks"
         ])
+        df.to_csv(DATA_FILE, index=False)
+        return df
 
+# Load the live data
 df = load_data()
 
 # --- Main App ---
-st.title("💻 Executive ICT Activity Portal")
+st.title("ICT Activity Portal")
 
 tab1, tab2, tab3, tab4 = st.tabs(["📝 Log New Activity", "📊 Dynamic Dashboard", "🗄️ Database View", "📑 Weekly Report"])
 
@@ -75,7 +79,7 @@ with tab1:
         if st.form_submit_button("💾 Save Log & Sync"):
             now = datetime.now()
             
-            # All inputs are converted to lowercase and stripped of extra spaces here
+            # Convert to lowercase and strip whitespace
             new_data = {
                 "Date": now.strftime("%Y-%m-%d"), 
                 "Day": now.strftime("%A"), 
@@ -92,16 +96,21 @@ with tab1:
                 "Remarks": remarks.lower().strip()
             }
             
-            new_df = pd.concat([df, pd.DataFrame([new_data])], ignore_index=True)
-            new_df.to_csv(DATA_FILE, index=False)
+            # SAFELY APPEND TO CSV INSTEAD OF OVERWRITING
+            new_df = pd.DataFrame([new_data])
+            # mode='a' means append. It simply adds the row to the bottom without touching previous data.
+            new_df.to_csv(DATA_FILE, mode='a', header=not os.path.exists(DATA_FILE), index=False)
             
+            # Push the safely updated file to GitHub
             sync_success, sync_msg = push_to_github(DATA_FILE)
-            load_data.clear() 
             
             if sync_success:
-                st.success(f"✅ Log saved! {sync_msg}")
+                st.success(f"✅ Log safely added to database! {sync_msg}")
             else:
-                st.warning(f"⚠️ Log saved to local server, but GitHub sync failed: {sync_msg}")
+                st.warning(f"⚠️ Log added locally, but GitHub sync failed: {sync_msg}")
+                
+            # Force a hard rerun to instantly refresh the dashboard tabs with the new live data
+            st.rerun()
 
 # ==========================================
 # TAB 2: DYNAMIC INFOGRAPHIC DASHBOARD
@@ -112,7 +121,6 @@ with tab2:
     else:
         st.subheader("Interactive Visualizations")
         
-        # Mapping Dictionary to prevent KeyError
         metric_mapping = {
             "Status": "Status", 
             "Department": "Department", 
@@ -124,20 +132,13 @@ with tab2:
             "Replaced Parts": "Parts"
         }
         
-        sort_by_display = st.selectbox(
-            "Select Metric to Analyze:", 
-            list(metric_mapping.keys()),
-            index=0 
-        )
-        
-        # Get the actual database column name
+        sort_by_display = st.selectbox("Select Metric to Analyze:", list(metric_mapping.keys()), index=0)
         sort_by_col = metric_mapping[sort_by_display]
         
         counts = df[sort_by_col].value_counts().reset_index()
         counts.columns = [sort_by_col, "Count"]
         
         if sort_by_col == "Status":
-            # Updated to look for lowercase status
             fig = px.pie(counts, values="Count", names="Status", hole=0.4, 
                          color="Status", color_discrete_map={"resolved": "#28a745", "pending": "#dc3545"},
                          title="Overall Resolution Status")
@@ -157,7 +158,7 @@ with tab3:
     if not df.empty:
         col_search, col_filter = st.columns([2, 1])
         with col_search:
-            search_term = st.text_input("🔍 Search any keyword...").lower() # Lowercase the search term too
+            search_term = st.text_input("🔍 Search any keyword...").lower()
         with col_filter:
             selected_columns = st.multiselect("Select columns to view:", df.columns.tolist(), default=df.columns.tolist())
         
@@ -190,7 +191,6 @@ with tab4:
                 st.warning("No records logged in the past 7 days.")
             else:
                 total_issues = len(weekly_df)
-                # Updated to look for lowercase status
                 resolved = len(weekly_df[weekly_df['Status'] == 'resolved'])
                 pending = total_issues - resolved
                 top_dept = weekly_df['Department'].mode()[0].title() if not weekly_df['Department'].empty else "N/A"
@@ -198,7 +198,6 @@ with tab4:
 
                 chart_path = "temp_chart.png"
                 fig, ax = plt.subplots(figsize=(6, 4))
-                # Map colors strictly to the lowercase values
                 color_map = {'resolved': '#28a745', 'pending': '#dc3545'}
                 colors = [color_map.get(x, '#333333') for x in weekly_df['Status'].value_counts().index]
                 weekly_df['Status'].value_counts().plot(kind='pie', autopct='%1.1f%%', colors=colors, ax=ax)
@@ -257,4 +256,3 @@ with tab4:
                     file_name=f"ICT_Weekly_Report_{now.strftime('%Y%m%d')}.docx",
                     mime="application/vnd.openxmlformats-officedocument.wordprocessingml.document"
                 )
-
