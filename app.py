@@ -56,7 +56,7 @@ def load_data():
 df = load_data()
 
 # --- Main App ---
-st.title("💻 Executive ICT Activity Portal")
+st.title("NBTI ICT DEPARTMENT Activity Portal")
 
 # --- MEMORY CHECK FOR SUCCESS MESSAGES ---
 # This checks if a message was saved in memory before the page refreshed
@@ -271,4 +271,5 @@ with tab4:
                     file_name=f"ICT_Weekly_Report_{now.strftime('%Y%m%d')}.docx",
                     mime="application/vnd.openxmlformats-officedocument.wordprocessingml.document"
                 )
+
 
