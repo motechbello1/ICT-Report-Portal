@@ -11,7 +11,7 @@ DATA_FILE = "ict_master_log.csv"
 
 # --- GitHub Sync Setup (For Cloud Deployment) ---
 # To use this, add your GitHub token to Streamlit Secrets (st.secrets["GITHUB_TOKEN"])
-GITHUB_REPO = "yourusername/your-repo-name" # CHANGE THIS
+GITHUB_REPO = "ICT-Report-Portal" # CHANGE THIS
 
 def push_to_github(file_path):
     try:
@@ -138,4 +138,5 @@ with tab3:
         
         # CSV Download Button
         csv_data = filtered_df.to_csv(index=False).encode('utf-8')
+
         st.download_button("📥 Download Filtered Data as CSV", csv_data, "Filtered_ICT_Logs.csv", "text/csv")
