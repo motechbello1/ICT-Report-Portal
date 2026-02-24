@@ -68,7 +68,7 @@ def save_last_report_date(end_date):
 df = load_data()
 
 # --- Main App ---
-st.title("💻 Executive ICT Activity Portal")
+st.title("NBTI ICT Department Activity Portal")
 
 if "form_message" in st.session_state:
     if st.session_state.message_type == "success":
@@ -282,3 +282,4 @@ with tab4:
                 
                 st.success(f"✅ Advanced Report generated for {start_date} to {end_date}!")
                 st.download_button("📥 Download Analyzed Report (.docx)", doc_buffer, f"ICT_Report_{end_date}.docx", "application/vnd.openxmlformats-officedocument.wordprocessingml.document")
+
