@@ -1,0 +1,6 @@
+streamlit
+pandas
+plotly
+PyGithub
+python-docx
+matplotlib
