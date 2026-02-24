@@ -12,7 +12,7 @@ import matplotlib.pyplot as plt
 # --- Configuration ---
 st.set_page_config(page_title="ICT Department Portal", layout="wide")
 DATA_FILE = "ict_master_log.csv"
-GITHUB_REPO = "motechbello1/ICT-Report-Portal" # CHANGE THIS
+GITHUB_REPO = "yourusername/your-repo-name" # CHANGE THIS
 
 # --- Improved GitHub Sync ---
 def push_to_github(file_path):
@@ -31,17 +31,21 @@ def push_to_github(file_path):
                 repo.create_file(file_path, "Auto-sync created log", content)
                 return True, "Created and synced to GitHub successfully!"
         else:
-            return False, "GITHUB_TOKEN not found in Streamlit Secrets. File saved locally only."
+            return False, "GITHUB_TOKEN not found in Streamlit Secrets. Saved locally."
     except Exception as e:
         return False, f"GitHub Sync Error: {str(e)}"
 
-# --- Helper Function to Load Data (CACHE REMOVED FOR STABILITY) ---
+# --- Helper Function to Load & Clean Data ---
 def load_data():
-    # Check if file exists AND is not empty
     if os.path.exists(DATA_FILE) and os.path.getsize(DATA_FILE) > 0:
-        return pd.read_csv(DATA_FILE)
+        df = pd.read_csv(DATA_FILE)
+        
+        # FORCE ALL STATUSES TO LOWERCASE TO FIX CASE SENSITIVITY
+        if 'Status' in df.columns:
+            df['Status'] = df['Status'].astype(str).str.lower().str.strip()
+            
+        return df
     else:
-        # If file doesn't exist, create it with headers to establish the database
         df = pd.DataFrame(columns=[
             "Date", "Day", "Time", "Department", "Reported By", "System ID", 
             "Description", "Problem", "Action", "Parts", "IT Staff", "Status", "Remarks"
@@ -49,11 +53,22 @@ def load_data():
         df.to_csv(DATA_FILE, index=False)
         return df
 
-# Load the live data
 df = load_data()
 
 # --- Main App ---
-st.title("ICT Activity Portal")
+st.title("💻 Executive ICT Activity Portal")
+
+# --- MEMORY CHECK FOR SUCCESS MESSAGES ---
+# This checks if a message was saved in memory before the page refreshed
+if "form_message" in st.session_state:
+    if st.session_state.message_type == "success":
+        st.success(st.session_state.form_message)
+    else:
+        st.warning(st.session_state.form_message)
+    # Delete the message from memory so it doesn't show up forever
+    del st.session_state.form_message
+    del st.session_state.message_type
+
 
 tab1, tab2, tab3, tab4 = st.tabs(["📝 Log New Activity", "📊 Dynamic Dashboard", "🗄️ Database View", "📑 Weekly Report"])
 
@@ -73,13 +88,12 @@ with tab1:
             action = st.text_area("Action Taken")
             parts = st.text_input("Replaced Parts (if any)")
             it_staff = st.text_input("IT Staff Name")
-            status = st.selectbox("Status", ["Resolved", "Pending"])
+            status = st.selectbox("Status", ["Resolved", "Pending"]) # Dropdown stays capitalized for UI
             remarks = st.text_area("Remarks")
             
         if st.form_submit_button("💾 Save Log & Sync"):
             now = datetime.now()
             
-            # Convert to lowercase and strip whitespace
             new_data = {
                 "Date": now.strftime("%Y-%m-%d"), 
                 "Day": now.strftime("%A"), 
@@ -92,25 +106,24 @@ with tab1:
                 "Action": action.lower().strip(),
                 "Parts": parts.lower().strip(), 
                 "IT Staff": it_staff.lower().strip(), 
-                "Status": status.lower(), 
+                "Status": status.lower(), # Saved as lowercase
                 "Remarks": remarks.lower().strip()
             }
             
-            # SAFELY APPEND TO CSV INSTEAD OF OVERWRITING
             new_df = pd.DataFrame([new_data])
-            # mode='a' means append. It simply adds the row to the bottom without touching previous data.
             new_df.to_csv(DATA_FILE, mode='a', header=not os.path.exists(DATA_FILE), index=False)
             
-            # Push the safely updated file to GitHub
             sync_success, sync_msg = push_to_github(DATA_FILE)
             
+            # SAVE MESSAGE TO MEMORY BEFORE REFRESHING
             if sync_success:
-                st.success(f"✅ Log safely added to database! {sync_msg}")
+                st.session_state.message_type = "success"
+                st.session_state.form_message = f"✅ Log safely added to database! {sync_msg}"
             else:
-                st.warning(f"⚠️ Log added locally, but GitHub sync failed: {sync_msg}")
+                st.session_state.message_type = "warning"
+                st.session_state.form_message = f"⚠️ Log added locally, but GitHub sync failed: {sync_msg}"
                 
-            # Force a hard rerun to instantly refresh the dashboard tabs with the new live data
-            st.rerun()
+            st.rerun() # Refresh page to update charts
 
 # ==========================================
 # TAB 2: DYNAMIC INFOGRAPHIC DASHBOARD
@@ -139,8 +152,9 @@ with tab2:
         counts.columns = [sort_by_col, "Count"]
         
         if sort_by_col == "Status":
+            # Maps "resolved" AND "reserved" to green, "pending" to red
             fig = px.pie(counts, values="Count", names="Status", hole=0.4, 
-                         color="Status", color_discrete_map={"resolved": "#28a745", "pending": "#dc3545"},
+                         color="Status", color_discrete_map={"resolved": "#28a745", "reserved": "#28a745", "pending": "#dc3545"},
                          title="Overall Resolution Status")
         elif sort_by_col in ["Department", "IT Staff"]:
             fig = px.bar(counts, x=sort_by_col, y="Count", color=sort_by_col, title=f"Issues segmented by {sort_by_display}")
@@ -191,14 +205,15 @@ with tab4:
                 st.warning("No records logged in the past 7 days.")
             else:
                 total_issues = len(weekly_df)
-                resolved = len(weekly_df[weekly_df['Status'] == 'resolved'])
+                # Count both resolved and reserved as finished
+                resolved = len(weekly_df[weekly_df['Status'].isin(['resolved', 'reserved'])])
                 pending = total_issues - resolved
                 top_dept = weekly_df['Department'].mode()[0].title() if not weekly_df['Department'].empty else "N/A"
                 top_staff = weekly_df['IT Staff'].mode()[0].title() if not weekly_df['IT Staff'].empty else "N/A"
 
                 chart_path = "temp_chart.png"
                 fig, ax = plt.subplots(figsize=(6, 4))
-                color_map = {'resolved': '#28a745', 'pending': '#dc3545'}
+                color_map = {'resolved': '#28a745', 'reserved': '#28a745', 'pending': '#dc3545'}
                 colors = [color_map.get(x, '#333333') for x in weekly_df['Status'].value_counts().index]
                 weekly_df['Status'].value_counts().plot(kind='pie', autopct='%1.1f%%', colors=colors, ax=ax)
                 ax.set_title("Weekly Resolution Status")
