@@ -12,7 +12,7 @@ import matplotlib.pyplot as plt
 # --- Configuration ---
 st.set_page_config(page_title="ICT Department Portal", layout="wide")
 DATA_FILE = "ict_master_log.csv"
-GITHUB_REPO = "yourusername/your-repo-name" # CHANGE THIS
+GITHUB_REPO = "motechbello1/ICT-Report-Portal" # CHANGE THIS
 
 # --- Improved GitHub Sync ---
 def push_to_github(file_path):
@@ -257,3 +257,4 @@ with tab4:
                     file_name=f"ICT_Weekly_Report_{now.strftime('%Y%m%d')}.docx",
                     mime="application/vnd.openxmlformats-officedocument.wordprocessingml.document"
                 )
+
