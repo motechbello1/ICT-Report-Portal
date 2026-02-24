@@ -173,113 +173,122 @@ with tab4:
 
     if st.button("📄 Generate Analyzed Executive Report"):
         if df.empty:
-            st.error("No data available.")
+            st.error("No data available in the master log.")
         else:
-            # Filter Data STRICTLY to the selected dates
             temp_df = df.copy()
             temp_df['Date'] = pd.to_datetime(temp_df['Date']).dt.date
-            weekly_df = temp_df[(temp_df['Date'] >= start_date) & (temp_df['Date'] <= end_date)].copy()
             
-            if weekly_df.empty:
-                st.warning(f"No records found between {start_date} and {end_date}.")
+            # --- STRICT AUTHENTICITY & FACTUAL CHECK ---
+            logged_dates = temp_df['Date'].unique()
+            
+            if start_date not in logged_dates:
+                st.error(f"⚠️ Authenticity Error: The exact Start Date selected ({start_date}) does not exist in the master log. To guarantee factual reporting, please select a valid date with logged activities.")
+            elif end_date not in logged_dates:
+                st.error(f"⚠️ Authenticity Error: The exact End Date selected ({end_date}) does not exist in the master log. To guarantee factual reporting, please select a valid date with logged activities.")
             else:
-                # Calculate Core Metrics
-                total_issues = len(weekly_df)
-                resolved = len(weekly_df[weekly_df['Status'].isin(['resolved', 'reserved'])])
-                pending = total_issues - resolved
-                res_rate = (resolved / total_issues) * 100 if total_issues > 0 else 0
+                # Filter Data STRICTLY to the selected dates
+                weekly_df = temp_df[(temp_df['Date'] >= start_date) & (temp_df['Date'] <= end_date)].copy()
                 
-                top_dept = weekly_df['Department'].value_counts().index[0].title() if not weekly_df['Department'].empty else "N/A"
-                top_dept_count = weekly_df['Department'].value_counts().iloc[0] if not weekly_df['Department'].empty else 0
-                
-                top_prob = weekly_df['Problem'].value_counts().index[0].capitalize() if not weekly_df['Problem'].empty else "N/A"
-                top_staff = weekly_df['IT Staff'].value_counts().index[0].title() if not weekly_df['IT Staff'].empty else "N/A"
+                if weekly_df.empty:
+                    st.warning(f"No records found between {start_date} and {end_date}.")
+                else:
+                    # Calculate Core Metrics
+                    total_issues = len(weekly_df)
+                    resolved = len(weekly_df[weekly_df['Status'].isin(['resolved', 'reserved'])])
+                    pending = total_issues - resolved
+                    res_rate = (resolved / total_issues) * 100 if total_issues > 0 else 0
+                    
+                    top_dept = weekly_df['Department'].value_counts().index[0].title() if not weekly_df['Department'].empty else "N/A"
+                    top_dept_count = weekly_df['Department'].value_counts().iloc[0] if not weekly_df['Department'].empty else 0
+                    
+                    top_prob = weekly_df['Problem'].value_counts().index[0].capitalize() if not weekly_df['Problem'].empty else "N/A"
+                    top_staff = weekly_df['IT Staff'].value_counts().index[0].title() if not weekly_df['IT Staff'].empty else "N/A"
 
-                # Generate Images via Matplotlib
-                doc = Document()
-                doc.add_heading('ICT Executive Summary & Analytics', 0)
-                doc.add_paragraph(f"Reporting Period: {start_date} to {end_date}\nGenerated on: {datetime.now().strftime('%Y-%m-%d')}")
-                
-                # --- CHART 1: STATUS PIE ---
-                fig1, ax1 = plt.subplots(figsize=(5, 3))
-                colors = [{'resolved': '#28a745', 'reserved': '#28a745', 'pending': '#dc3545'}.get(x, '#333') for x in weekly_df['Status'].value_counts().index]
-                weekly_df['Status'].value_counts().plot(kind='pie', autopct='%1.1f%%', colors=colors, ax=ax1)
-                ax1.set_ylabel("")
-                fig1.savefig("c1.png", bbox_inches='tight')
-                plt.close(fig1)
+                    # Generate Images via Matplotlib
+                    doc = Document()
+                    doc.add_heading('ICT Executive Summary & Analytics', 0)
+                    doc.add_paragraph(f"Reporting Period: {start_date} to {end_date}\nGenerated on: {datetime.now().strftime('%Y-%m-%d')}")
+                    
+                    # --- CHART 1: STATUS PIE ---
+                    fig1, ax1 = plt.subplots(figsize=(5, 3))
+                    colors = [{'resolved': '#28a745', 'reserved': '#28a745', 'pending': '#dc3545'}.get(x, '#333') for x in weekly_df['Status'].value_counts().index]
+                    weekly_df['Status'].value_counts().plot(kind='pie', autopct='%1.1f%%', colors=colors, ax=ax1)
+                    ax1.set_ylabel("")
+                    fig1.savefig("c1.png", bbox_inches='tight')
+                    plt.close(fig1)
 
-                doc.add_heading('1. Resolution Efficiency', level=1)
-                doc.add_picture("c1.png", width=Inches(4.5))
-                doc.add_paragraph(f"Analysis: During this period, the ICT department processed {total_issues} total support requests. "
-                                  f"The team successfully resolved {resolved} cases, resulting in an overall resolution rate of {res_rate:.1f}%. "
-                                  f"Currently, {pending} cases remain pending and will be prioritized in the upcoming cycle.")
+                    doc.add_heading('1. Resolution Efficiency', level=1)
+                    doc.add_picture("c1.png", width=Inches(4.5))
+                    doc.add_paragraph(f"Analysis: During this period, the ICT department processed {total_issues} total support requests. "
+                                      f"The team successfully resolved {resolved} cases, resulting in an overall resolution rate of {res_rate:.1f}%. "
+                                      f"Currently, {pending} cases remain pending and will be prioritized in the upcoming cycle.")
 
-                # --- CHART 2: DEPARTMENT BAR ---
-                fig2, ax2 = plt.subplots(figsize=(5, 3))
-                weekly_df['Department'].value_counts().plot(kind='bar', color='#007bff', ax=ax2)
-                plt.xticks(rotation=45, ha='right')
-                fig2.savefig("c2.png", bbox_inches='tight')
-                plt.close(fig2)
+                    # --- CHART 2: DEPARTMENT BAR ---
+                    fig2, ax2 = plt.subplots(figsize=(5, 3))
+                    weekly_df['Department'].value_counts().plot(kind='bar', color='#007bff', ax=ax2)
+                    plt.xticks(rotation=45, ha='right')
+                    fig2.savefig("c2.png", bbox_inches='tight')
+                    plt.close(fig2)
 
-                doc.add_heading('2. Departmental Demand', level=1)
-                doc.add_picture("c2.png", width=Inches(4.5))
-                doc.add_paragraph(f"Analysis: This chart illustrates where ICT resources are being consumed. The highest volume of requests "
-                                  f"originated from the {top_dept} department, generating {top_dept_count} individual tickets. "
-                                  f"Monitoring these trends allows us to identify if specific departments require new hardware or additional user-training.")
+                    doc.add_heading('2. Departmental Demand', level=1)
+                    doc.add_picture("c2.png", width=Inches(4.5))
+                    doc.add_paragraph(f"Analysis: This chart illustrates where ICT resources are being consumed. The highest volume of requests "
+                                      f"originated from the {top_dept} department, generating {top_dept_count} individual tickets. "
+                                      f"Monitoring these trends allows us to identify if specific departments require new hardware or additional user-training.")
 
-                # --- CHART 3: TOP PROBLEMS (Horizontal Bar) ---
-                fig3, ax3 = plt.subplots(figsize=(5, 3))
-                weekly_df['Problem'].value_counts().nlargest(5).plot(kind='barh', color='#ffc107', ax=ax3)
-                ax3.invert_yaxis() # Highest at top
-                fig3.savefig("c3.png", bbox_inches='tight')
-                plt.close(fig3)
+                    # --- CHART 3: TOP PROBLEMS (Horizontal Bar) ---
+                    fig3, ax3 = plt.subplots(figsize=(5, 3))
+                    weekly_df['Problem'].value_counts().nlargest(5).plot(kind='barh', color='#ffc107', ax=ax3)
+                    ax3.invert_yaxis() # Highest at top
+                    fig3.savefig("c3.png", bbox_inches='tight')
+                    plt.close(fig3)
 
-                doc.add_heading('3. Primary Diagnosed Faults', level=1)
-                doc.add_picture("c3.png", width=Inches(4.5))
-                doc.add_paragraph(f"Analysis: Focusing on the top 5 reported issues, the most frequently diagnosed problem was '{top_prob}'. "
-                                  f"By tracking specific hardware or software failures, the ICT department can shift from reactive maintenance "
-                                  f"to proactive replacement strategies for failing system types.")
+                    doc.add_heading('3. Primary Diagnosed Faults', level=1)
+                    doc.add_picture("c3.png", width=Inches(4.5))
+                    doc.add_paragraph(f"Analysis: Focusing on the top 5 reported issues, the most frequently diagnosed problem was '{top_prob}'. "
+                                      f"By tracking specific hardware or software failures, the ICT department can shift from reactive maintenance "
+                                      f"to proactive replacement strategies for failing system types.")
 
-                # --- CHART 4: IT STAFF PERFORMANCE ---
-                fig4, ax4 = plt.subplots(figsize=(5, 3))
-                weekly_df['IT Staff'].value_counts().plot(kind='bar', color='#17a2b8', ax=ax4)
-                plt.xticks(rotation=45, ha='right')
-                fig4.savefig("c4.png", bbox_inches='tight')
-                plt.close(fig4)
+                    # --- CHART 4: IT STAFF PERFORMANCE ---
+                    fig4, ax4 = plt.subplots(figsize=(5, 3))
+                    weekly_df['IT Staff'].value_counts().plot(kind='bar', color='#17a2b8', ax=ax4)
+                    plt.xticks(rotation=45, ha='right')
+                    fig4.savefig("c4.png", bbox_inches='tight')
+                    plt.close(fig4)
 
-                doc.add_heading('4. Staff Workload Distribution', level=1)
-                doc.add_picture("c4.png", width=Inches(4.5))
-                doc.add_paragraph(f"Analysis: This metric tracks the individual ticket completion rates of the ICT personnel. "
-                                  f"For this 7-day period, {top_staff} managed the highest volume of system interventions. "
-                                  f"This data is vital for ensuring balanced resource allocation and preventing technician burnout.")
+                    doc.add_heading('4. Staff Workload Distribution', level=1)
+                    doc.add_picture("c4.png", width=Inches(4.5))
+                    doc.add_paragraph(f"Analysis: This metric tracks the individual ticket completion rates of the ICT personnel. "
+                                      f"For this period, {top_staff} managed the highest volume of system interventions. "
+                                      f"This data is vital for ensuring balanced resource allocation and preventing technician burnout.")
 
-                # --- TABLE: ONLY THE 7-DAY WINDOW ---
-                doc.add_heading(f'5. Activity Log ({start_date} to {end_date})', level=1)
-                table = doc.add_table(rows=1, cols=6)
-                table.style = 'Table Grid'
-                hdr = table.rows[0].cells
-                hdr[0].text, hdr[1].text, hdr[2].text, hdr[3].text, hdr[4].text, hdr[5].text = 'Date', 'Dept', 'System ID', 'Problem', 'Staff', 'Status'
+                    # --- TABLE: ONLY THE FILTERED WINDOW ---
+                    doc.add_heading(f'5. Activity Log ({start_date} to {end_date})', level=1)
+                    table = doc.add_table(rows=1, cols=6)
+                    table.style = 'Table Grid'
+                    hdr = table.rows[0].cells
+                    hdr[0].text, hdr[1].text, hdr[2].text, hdr[3].text, hdr[4].text, hdr[5].text = 'Date', 'Dept', 'System ID', 'Problem', 'Staff', 'Status'
 
-                for _, row in weekly_df.sort_values(by='Date').iterrows():
-                    row_cells = table.add_row().cells
-                    row_cells[0].text = str(row['Date'])
-                    row_cells[1].text = str(row['Department']).title()
-                    row_cells[2].text = str(row['System ID']).upper()
-                    row_cells[3].text = str(row['Problem']).capitalize()
-                    row_cells[4].text = str(row['IT Staff']).title()
-                    row_cells[5].text = str(row['Status']).title()
+                    for _, row in weekly_df.sort_values(by='Date').iterrows():
+                        row_cells = table.add_row().cells
+                        row_cells[0].text = str(row['Date'])
+                        row_cells[1].text = str(row['Department']).title()
+                        row_cells[2].text = str(row['System ID']).upper()
+                        row_cells[3].text = str(row['Problem']).capitalize()
+                        row_cells[4].text = str(row['IT Staff']).title()
+                        row_cells[5].text = str(row['Status']).title()
 
-                # Clean up temp images
-                for file in ["c1.png", "c2.png", "c3.png", "c4.png"]:
-                    if os.path.exists(file): os.remove(file)
+                    # Clean up temp images
+                    for file in ["c1.png", "c2.png", "c3.png", "c4.png"]:
+                        if os.path.exists(file): os.remove(file)
 
-                doc_buffer = io.BytesIO()
-                doc.save(doc_buffer)
-                doc_buffer.seek(0)
-                
-                # Update the tracker file so the NEXT report starts exactly where this one ended
-                save_last_report_date(end_date)
-                
-                st.success(f"✅ Advanced Report generated for {start_date} to {end_date}!")
-                st.download_button("📥 Download Analyzed Report (.docx)", doc_buffer, f"ICT_Report_{end_date}.docx", "application/vnd.openxmlformats-officedocument.wordprocessingml.document")
+                    doc_buffer = io.BytesIO()
+                    doc.save(doc_buffer)
+                    doc_buffer.seek(0)
+                    
+                    # Update the tracker file so the NEXT report starts exactly where this one ended
+                    save_last_report_date(end_date)
+                    
+                    st.success(f"✅ Verified & Authentic Report generated for {start_date} to {end_date}!")
+                    st.download_button("📥 Download Analyzed Report (.docx)", doc_buffer, f"ICT_Report_{end_date}.docx", "application/vnd.openxmlformats-officedocument.wordprocessingml.document")
 
