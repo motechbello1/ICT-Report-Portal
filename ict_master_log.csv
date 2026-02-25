@@ -7,3 +7,4 @@ Date,Day,Time,Department,Reported By,System ID,Description,Problem,Action,Parts,
 2026-02-24,Tuesday,14:57:48,finance and accounts,director finance and accounts,ip phones,none,connectivity,reset,none,felix,resolved,ip phone ok
 2026-02-24,Tuesday,15:35:20,legal,director legal,ip hones,none,connectivity,reset,none,felix,resolved,ip phones okay
 2026-02-25,Wednesday,12:49:51,operations,director of operations,none,none,document scan,scanned documents,nil,david,resolved,document scanned
+2026-02-25,Wednesday,12:52:48,legal,legal staff,hp,none,email login failure,password reset,nil,david,resolved,login failure fixed
