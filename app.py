@@ -156,7 +156,7 @@ if "form_message" in st.session_state:
 # MODULE 1: ICT DEPARTMENTAL ACTIVITIES
 # ==============================================================================
 if app_mode == "🛠️ ICT Departmental Activities":
-    st.title("💻 Executive ICT Departmental Activities Portal")
+    st.title("NBTI ICT Departmental Activities Portal")
     
     ict_columns = ["Date", "Day", "Time", "Department", "Reported By", "System ID", "Description", "Problem", "Action", "Parts", "IT Staff", "Status", "Remarks"]
     df_ict = load_and_clean_data(ICT_DATA_FILE, ict_columns)
@@ -451,3 +451,4 @@ elif app_mode == "📑 Master Combined Report":
             
             st.success("✅ Multi-Graphic Dynamic Report Generated!")
             st.download_button("📥 Download Master Report", doc_buffer, f"Master_{end_date}.docx")
+
