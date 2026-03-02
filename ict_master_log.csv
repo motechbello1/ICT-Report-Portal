@@ -1,10 +1,11 @@
-Date,Day,Time,Department,Reported By,System ID,Description,Problem,Action,Parts,IT Staff,Status,Remarks
-2026-02-24,Tuesday,14:36:37,HR,DHR,Elite book core i7,1040 g7,OS CRASH,Re installation and activation,NIL,FELIX,Resolved,System Working
-2026-02-24,Tuesday,14:40:32,ADMIN,HR staff,HP DESKTOP,NONE,NONE,DESKTOP SETUP,NONE,BELLO,Resolved,SYSTEM WORKING
-2026-02-24,Tuesday,14:47:06,ADMIN,Admin staff,Hp Desktop,NONE,NONE,FILE TRANSFER,NONE,BELLO,Resolved,System Working
-2026-02-24,Tuesday,14:48:28,LEGAL,LEGAL STAFF,HP ,NONE,NONE,PASSWORD REMOVAL,NONE,BELLO,Resolved,System Working
-2026-02-24,Tuesday,14:50:10,finance and accounts,director finance and accounts,ip phone,none,none,reset,none,felix,resolved,ip phones ok
-2026-02-24,Tuesday,14:57:48,finance and accounts,director finance and accounts,ip phones,none,connectivity,reset,none,felix,resolved,ip phone ok
-2026-02-24,Tuesday,15:35:20,legal,director legal,ip hones,none,connectivity,reset,none,felix,resolved,ip phones okay
-2026-02-25,Wednesday,12:49:51,operations,director of operations,none,none,document scan,scanned documents,nil,david,resolved,document scanned
-2026-02-25,Wednesday,12:52:48,legal,legal staff,hp,none,email login failure,password reset,nil,david,resolved,login failure fixed
+Date,Day,Time,Department,Reported By,System ID,Description,Problem,Action,Parts,IT Staff,Status,Remarks,Sector
+2026-02-24,Tuesday,14:36:37,Hr,Dhr,Elite Book Core I7,1040 G7,Os Crash,Re Installation And Activation,Nil,Felix,Resolved,System Working,Unassigned / General
+2026-02-24,Tuesday,14:40:32,Admin,Hr Staff,Hp Desktop,None,None,Desktop Setup,None,Bello,Resolved,System Working,Unassigned / General
+2026-02-24,Tuesday,14:47:06,Admin,Admin Staff,Hp Desktop,None,None,File Transfer,None,Bello,Resolved,System Working,Unassigned / General
+2026-02-24,Tuesday,14:48:28,Legal,Legal Staff,Hp,None,None,Password Removal,None,Bello,Resolved,System Working,Unassigned / General
+2026-02-24,Tuesday,14:50:10,Finance And Accounts,Director Finance And Accounts,Ip Phone,None,None,Reset,None,Felix,Resolved,Ip Phones Ok,Unassigned / General
+2026-02-24,Tuesday,14:57:48,Finance And Accounts,Director Finance And Accounts,Ip Phones,None,Connectivity,Reset,None,Felix,Resolved,Ip Phone Ok,Unassigned / General
+2026-02-24,Tuesday,15:35:20,Legal,Director Legal,Ip Hones,None,Connectivity,Reset,None,Felix,Resolved,Ip Phones Okay,Unassigned / General
+2026-02-25,Wednesday,12:49:51,Operations,Director Of Operations,None,None,Document Scan,Scanned Documents,Nil,David,Resolved,Document Scanned,Unassigned / General
+2026-02-25,Wednesday,12:52:48,Legal,Legal Staff,Hp,None,Email Login Failure,Password Reset,Nil,David,Resolved,Login Failure Fixed,Unassigned / General
+2026-03-02,Monday,11:14:13,Admin,Admin staff,HP desktop,none,System not turning on and monitor not responsive,none ,none,"John(NYSC), Neddabiah(IT).",Pending,System awaiting repairs.,Hardware & Asset Management
