@@ -1,11 +1,12 @@
 Date,Day,Time,Department,Reported By,System ID,Description,Problem,Action,Parts,IT Staff,Status,Remarks,Sector
 2026-02-24,Tuesday,14:36:37,Hr,Dhr,Elite Book Core I7,1040 G7,Os Crash,Re Installation And Activation,Nil,Felix,Resolved,System Working,Unassigned / General
-2026-02-24,Tuesday,14:40:32,Admin,Hr Staff,Hp Desktop,None,None,Desktop Setup,None,Bello,Resolved,System Working,Unassigned / General
-2026-02-24,Tuesday,14:47:06,Admin,Admin Staff,Hp Desktop,None,None,File Transfer,None,Bello,Resolved,System Working,Unassigned / General
-2026-02-24,Tuesday,14:48:28,Legal,Legal Staff,Hp,None,None,Password Removal,None,Bello,Resolved,System Working,Unassigned / General
-2026-02-24,Tuesday,14:50:10,Finance And Accounts,Director Finance And Accounts,Ip Phone,None,None,Reset,None,Felix,Resolved,Ip Phones Ok,Unassigned / General
-2026-02-24,Tuesday,14:57:48,Finance And Accounts,Director Finance And Accounts,Ip Phones,None,Connectivity,Reset,None,Felix,Resolved,Ip Phone Ok,Unassigned / General
-2026-02-24,Tuesday,15:35:20,Legal,Director Legal,Ip Hones,None,Connectivity,Reset,None,Felix,Resolved,Ip Phones Okay,Unassigned / General
-2026-02-25,Wednesday,12:49:51,Operations,Director Of Operations,None,None,Document Scan,Scanned Documents,Nil,David,Resolved,Document Scanned,Unassigned / General
-2026-02-25,Wednesday,12:52:48,Legal,Legal Staff,Hp,None,Email Login Failure,Password Reset,Nil,David,Resolved,Login Failure Fixed,Unassigned / General
-2026-03-02,Monday,11:14:13,Admin,Admin staff,HP desktop,none,System not turning on and monitor not responsive,none ,none,"John(NYSC), Neddabiah(IT).",Pending,System awaiting repairs.,Hardware & Asset Management
+2026-02-24,Tuesday,14:40:32,Admin,Hr Staff,Hp Desktop,Nan,Nan,Desktop Setup,Nan,Bello,Resolved,System Working,Unassigned / General
+2026-02-24,Tuesday,14:47:06,Admin,Admin Staff,Hp Desktop,Nan,Nan,File Transfer,Nan,Bello,Resolved,System Working,Unassigned / General
+2026-02-24,Tuesday,14:48:28,Legal,Legal Staff,Hp,Nan,Nan,Password Removal,Nan,Bello,Resolved,System Working,Unassigned / General
+2026-02-24,Tuesday,14:50:10,Finance And Accounts,Director Finance And Accounts,Ip Phone,Nan,Nan,Reset,Nan,Felix,Resolved,Ip Phones Ok,Unassigned / General
+2026-02-24,Tuesday,14:57:48,Finance And Accounts,Director Finance And Accounts,Ip Phones,Nan,Connectivity,Reset,Nan,Felix,Resolved,Ip Phone Ok,Unassigned / General
+2026-02-24,Tuesday,15:35:20,Legal,Director Legal,Ip Hones,Nan,Connectivity,Reset,Nan,Felix,Resolved,Ip Phones Okay,Unassigned / General
+2026-02-25,Wednesday,12:49:51,Operations,Director Of Operations,Nan,Nan,Document Scan,Scanned Documents,Nil,David,Resolved,Document Scanned,Unassigned / General
+2026-02-25,Wednesday,12:52:48,Legal,Legal Staff,Hp,Nan,Email Login Failure,Password Reset,Nil,David,Resolved,Login Failure Fixed,Unassigned / General
+2026-02-27,Friday,11:17:25,Commercial,Commercial staff,CPU & DESKTOP,NONE,System not used for a while,System setup,none,Bello,Resolved,System working and ready for use,Hardware & Asset Management
+2026-03-02,Monday,11:14:13,Admin,Admin Staff,Hp Desktop,None,System Not Turning On And Monitor Not Responsive,None,None,"John(Nysc), Neddabiah(It).",Pending,System Awaiting Repairs.,Hardware & Asset Management
