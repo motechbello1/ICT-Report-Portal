@@ -1,4 +1,5 @@
 Date,Day,Time,Department,Reported By,System ID,Description,Problem,Action,Parts,IT Staff,Status,Remarks,Sector
+2026-02-19,Thursday,09:20:26,HR,DHR,Elitebook Core i7,Elitebook Core i7,OS Crash,Reinstallation and Activation,None,Felix,Resolved,Resolved,Software & Applications
 2026-02-24,Tuesday,14:36:37,Hr,Dhr,Elite Book Core I7,1040 G7,Os Crash,Re Installation And Activation,Nil,Felix,Resolved,System Working,Unassigned / General
 2026-02-24,Tuesday,14:40:32,Admin,Hr Staff,Hp Desktop,Nan,Nan,Desktop Setup,Nan,Bello,Resolved,System Working,Unassigned / General
 2026-02-24,Tuesday,14:47:06,Admin,Admin Staff,Hp Desktop,Nan,Nan,File Transfer,Nan,Bello,Resolved,System Working,Unassigned / General
@@ -8,6 +9,6 @@ Date,Day,Time,Department,Reported By,System ID,Description,Problem,Action,Parts,
 2026-02-24,Tuesday,15:35:20,Legal,Director Legal,Ip Hones,Nan,Connectivity,Reset,Nan,Felix,Resolved,Ip Phones Okay,Unassigned / General
 2026-02-25,Wednesday,12:49:51,Operations,Director Of Operations,Nan,Nan,Document Scan,Scanned Documents,Nil,David,Resolved,Document Scanned,Unassigned / General
 2026-02-25,Wednesday,12:52:48,Legal,Legal Staff,Hp,Nan,Email Login Failure,Password Reset,Nil,David,Resolved,Login Failure Fixed,Unassigned / General
-2026-02-27,Friday,11:17:25,Commercial,Commercial Staff,Cpu & Desktop,None,System Not Used For A While,System Setup,None,Bello,Resolved,System Working And Ready For Use,Hardware & Asset Management
-2026-02-27,Friday,11:45:05,Legal,Legal staff,HP,none,password reset,Set PC password,none,Bello,Resolved,system working,Software & Applications
+2026-02-27,Friday,11:17:25,Commercial,Commercial Staff,Cpu & Desktop,Nan,System Not Used For A While,System Setup,Nan,Bello,Resolved,System Working And Ready For Use,Hardware & Asset Management
+2026-02-27,Friday,11:45:05,Legal,Legal Staff,Hp,None,Password Reset,Set Pc Password,None,Bello,Resolved,System Working,Software & Applications
 2026-03-02,Monday,11:14:13,Admin,Admin Staff,Hp Desktop,Nan,System Not Turning On And Monitor Not Responsive,Nan,Nan,"John(Nysc), Neddabiah(It).",Pending,System Awaiting Repairs.,Hardware & Asset Management
