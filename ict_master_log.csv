@@ -8,7 +8,8 @@ Date,Day,Time,Department,Reported By,System ID,Description,Problem,Action,Parts,
 2026-02-24,Tuesday,14:57:48,Finance And Accounts,Director Finance And Accounts,Ip Phones,Nan,Connectivity,Reset,Nan,Felix,Resolved,Ip Phone Ok,Unassigned / General
 2026-02-24,Tuesday,15:35:20,Legal,Director Legal,Ip Hones,Nan,Connectivity,Reset,Nan,Felix,Resolved,Ip Phones Okay,Unassigned / General
 2026-02-25,Wednesday,09:22:09,Hr,Hr,Hp Desktop,Hp Desktop,Power Cable Malfunction,Power Connected,Nan,Nan,Resolved,Nan,Cybersecurity & Access Control
-2026-02-25,Wednesday,09:31:54,HR,HR,HP Desktop,HP Desktop,Excel Malfunction,Reset carried out,None,Unique,Resolved,Resolved,Software & Applications
+2026-02-25,Wednesday,09:31:54,Hr,Hr,Hp Desktop,Hp Desktop,Excel Malfunction,Reset Carried Out,Nan,Unique,Resolved,Resolved,Software & Applications
+2026-02-25,Wednesday,09:32:58,HR,HR,HP Desktop,HP Desktop,Application malfunction,System restarted,None,Unique,Resolved,Resolved,Software & Applications
 2026-02-25,Wednesday,12:49:51,Operations,Director Of Operations,Nan,Nan,Document Scan,Scanned Documents,Nil,David,Resolved,Document Scanned,Unassigned / General
 2026-02-25,Wednesday,12:52:48,Legal,Legal Staff,Hp,Nan,Email Login Failure,Password Reset,Nil,David,Resolved,Login Failure Fixed,Unassigned / General
 2026-02-27,Friday,11:17:25,Commercial,Commercial Staff,Cpu & Desktop,Nan,System Not Used For A While,System Setup,Nan,Bello,Resolved,System Working And Ready For Use,Hardware & Asset Management
