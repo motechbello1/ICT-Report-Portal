@@ -33,4 +33,5 @@ Date,Day,Time,Department,Reported By,System ID,Description,Problem,Action,Parts,
 2026-06-30,Tuesday,14:30:32,Ict,Admin,,,,Registration Of Compro Candidates For 2026 Examinations,,Felix,Resolved,Registration Of 65 Candidates,Cloud & Server Operations
 2026-07-06,Monday,12:26:44,Human Resource,Staff,,,System Not Booting,Switched System Off Completely And Rebooted.,,David,Resolved,After Boots Just Fine After Restart.,Hardware & Asset Management
 2026-07-06,Monday,14:23:18,Hrm,Dhr Office,"Sn: Cnd1150Ytx, System Id: 876D",Dhr Elitebook X360 1040 G7 Notebook Pc Core I7,System Is Not Coming Up,Checking The System Motherboards And The Hardwares,The Ssd,"Felix, Sunday, Okon",Pending,Not Resolved,Hardware & Asset Management
-2026-07-06,Monday,14:30:30,Human Resource ,,,,,ICT Asset Inventory ,,Aisha Rufa'i Adamu ,Pending,,Hardware & Asset Management
+2026-07-06,Monday,14:30:30,Human Resource,,,,,Ict Asset Inventory,,Aisha Rufa'I Adamu,Pending,,Hardware & Asset Management
+2026-07-06,Monday,15:21:50,DHR office,DHR ,All in One ,All-in-one,,Checking if the system Can come on,HDD,"Felix Sunday,Okon",Resolved,,Hardware & Asset Management
