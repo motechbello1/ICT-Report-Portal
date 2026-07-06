@@ -30,4 +30,5 @@ Date,Day,Time,Department,Reported By,System ID,Description,Problem,Action,Parts,
 2026-06-30,Tuesday,14:18:41,Human Resource,,Laptop,Hp,System Slow,Need To Delete Or Safe Files In A Hard Disk To Create Space In The System Hard Disk,Nil,Victoria,Pending,,Software & Applications
 2026-06-30,Tuesday,14:21:13,Servicom,,,,,,,,Resolved,,Hardware & Asset Management
 2026-06-30,Tuesday,14:23:09,,,Projector,Projector,,Presentation Using Projector Device,Nil,Victoria,Resolved,,Cybersecurity & Access Control
-2026-06-30,Tuesday,14:30:32,ICT,Admin,,,,Registration of COMPRO Candidates for 2026 Examinations,,Felix,Resolved,Registration of 65 Candidates ,Cloud & Server Operations
+2026-06-30,Tuesday,14:30:32,Ict,Admin,,,,Registration Of Compro Candidates For 2026 Examinations,,Felix,Resolved,Registration Of 65 Candidates,Cloud & Server Operations
+2026-07-06,Monday,12:26:44,Human Resource,Staff,,,system not booting,switched system off completely and rebooted.,none,David,Resolved,after boots just fine after restart.,Hardware & Asset Management
