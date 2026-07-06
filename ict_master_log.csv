@@ -31,4 +31,5 @@ Date,Day,Time,Department,Reported By,System ID,Description,Problem,Action,Parts,
 2026-06-30,Tuesday,14:21:13,Servicom,,,,,,,,Resolved,,Hardware & Asset Management
 2026-06-30,Tuesday,14:23:09,,,Projector,Projector,,Presentation Using Projector Device,Nil,Victoria,Resolved,,Cybersecurity & Access Control
 2026-06-30,Tuesday,14:30:32,Ict,Admin,,,,Registration Of Compro Candidates For 2026 Examinations,,Felix,Resolved,Registration Of 65 Candidates,Cloud & Server Operations
-2026-07-06,Monday,12:26:44,Human Resource,Staff,,,system not booting,switched system off completely and rebooted.,none,David,Resolved,after boots just fine after restart.,Hardware & Asset Management
+2026-07-06,Monday,12:26:44,Human Resource,Staff,,,System Not Booting,Switched System Off Completely And Rebooted.,None,David,Resolved,After Boots Just Fine After Restart.,Hardware & Asset Management
+2026-07-06,Monday,14:23:18,HRM,DHR office,"SN: CND1150YTX, System ID: 876D",DHR EliteBook x360 1040 G7 Notebook PC core i7,System is not coming up,Checking the system Motherboards and the Hardwares,The SSD,"Felix, Sunday, Okon",Pending,Not resolved ,Hardware & Asset Management
