@@ -34,4 +34,5 @@ Date,Day,Time,Department,Reported By,System ID,Description,Problem,Action,Parts,
 2026-07-06,Monday,12:26:44,Human Resource,Staff,,,System Not Booting,Switched System Off Completely And Rebooted.,,David,Resolved,After Boots Just Fine After Restart.,Hardware & Asset Management
 2026-07-06,Monday,14:23:18,Hrm,Dhr Office,"Sn: Cnd1150Ytx, System Id: 876D",Dhr Elitebook X360 1040 G7 Notebook Pc Core I7,System Is Not Coming Up,Checking The System Motherboards And The Hardwares,The Ssd,"Felix, Sunday, Okon",Pending,Not Resolved,Hardware & Asset Management
 2026-07-06,Monday,14:30:30,Human Resource,,,,,Ict Asset Inventory,,Aisha Rufa'I Adamu,Pending,,Hardware & Asset Management
-2026-07-06,Monday,15:21:50,DHR office,DHR ,All in One ,All-in-one,,Checking if the system Can come on,HDD,"Felix Sunday,Okon",Resolved,,Hardware & Asset Management
+2026-07-06,Monday,15:21:50,Dhr Office,Dhr,All In One,All-In-One,,Checking If The System Can Come On,Hdd,"Felix Sunday,Okon",Resolved,,Hardware & Asset Management
+2026-07-13,Monday,14:31:47,,,,,,Wrote a memo to DG to invite transnet Data and Tech Limited for a live demonstration of their services ,,Aisha Rufa'i Adamu ,Resolved,,Software & Applications
