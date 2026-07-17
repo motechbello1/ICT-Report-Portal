@@ -36,4 +36,5 @@ Date,Day,Time,Department,Reported By,System ID,Description,Problem,Action,Parts,
 2026-07-06,Monday,14:30:30,Human Resource,,,,,Ict Asset Inventory,,Aisha Rufa'I Adamu,Pending,,Hardware & Asset Management
 2026-07-06,Monday,15:21:50,Dhr Office,Dhr,All In One,All-In-One,,Checking If The System Can Come On,Hdd,"Felix Sunday,Okon",Resolved,,Hardware & Asset Management
 2026-07-13,Monday,14:31:47,,,,,,Wrote A Memo To Dg To Invite Transnet Data And Tech Limited For A Live Demonstration Of Their Services,,Aisha Rufa'I Adamu,Resolved,,Software & Applications
-2026-07-17,Friday,16:15:29,Admin,Admin,,,,Registration of COMPRO 2026,,Felix Sunday Okon,Resolved,COMPRO Registration Completed ,Database Management
+2026-07-17,Friday,16:15:29,Admin,Admin,,,,Registration Of Compro 2026,,Felix Sunday Okon,Resolved,Compro Registration Completed,Database Management
+2026-07-17,Friday,16:17:20,Operations,Faith Okafor,,,,Retrieving of TAX IDENTIFICATION NUMBER,,Felix Sunday Okon,Resolved,Retrieve Successfully,Cybersecurity & Access Control
