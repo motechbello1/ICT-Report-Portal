@@ -43,4 +43,5 @@ Date,Day,Time,Department,Reported By,System ID,Description,Problem,Action,Parts,
 2026-07-30,Thursday,13:30:52,Admin,Admin Staff,Desktop,All In One,Rearranging Of Scattered File,Files Successfully Arranged,,David,Resolved,,Cybersecurity & Access Control
 2026-07-30,Thursday,13:30:58,,,,,,,,,Resolved,,Cybersecurity & Access Control
 2026-07-30,Thursday,13:35:52,Hr,Deputy Director Hr,Hp Printer,Hp Laser Jet 2055,Ink Replacement And Printer Servicing,Replaced Printer Ink,Ink,David,Resolved,,Cybersecurity & Access Control
-2026-07-30,Thursday,14:48:21,Servicom,Servicom Staff,mobile device,mobile,Applying signature on an Online form,Signature applied,none,David,Resolved,signature successfully applied,Cybersecurity & Access Control
+2026-07-30,Thursday,14:48:21,Servicom,Servicom Staff,Mobile Device,Mobile,Applying Signature On An Online Form,Signature Applied,None,David,Resolved,Signature Successfully Applied,Cybersecurity & Access Control
+2026-07-30,Thursday,14:53:07,Human Resource,HR staff,hp ,hp Laptop,mouse pad not functional.,reboot system,none,DAVID,Resolved,Mouse pad functional after system reboot,Hardware & Asset Management
