@@ -39,10 +39,11 @@ Date,Day,Time,Department,Reported By,System ID,Description,Problem,Action,Parts,
 2026-07-17,Friday,16:15:29,Admin,Admin,,,,Registration Of Compro 2026,,Felix Sunday Okon,Resolved,Compro Registration Completed,Database Management
 2026-07-17,Friday,16:17:20,Operations,Faith Okafor,,,,Retrieving Of Tax Identification Number,,Felix Sunday Okon,Resolved,Retrieve Successfully,Cybersecurity & Access Control
 2026-07-27,Monday,13:23:08,Dhr Office,Dd Human Resources,,,,Automatically Rearranging Of Cadre In Descending Order,,Felix Sunsay Okon,Resolved,Done,Database Management
-2026-07-30,Thursday,12:11:36,Legal,Director Legal,Hp ,Hp elitebook,Hard drive replacement ,Hard drive replacement and operating system installed.,Hard drive,Felix,Resolved,,Hardware & Asset Management
+2026-07-30,Thursday,12:11:36,Legal,Director Legal,Hp,Hp Elitebook,Hard Drive Replacement,Hard Drive Replacement And Operating System Installed.,Hard Drive,Felix,Resolved,,Hardware & Asset Management
+2026-07-30,Thursday,12:13:00,Legal,Director Legal,Hp,Hp laptop ,Hard drive replacement ,Hard drive replacement and operating system installed.,Hard drive ,Felix,Resolved,,Hardware & Asset Management
 2026-07-30,Thursday,13:27:38,Hr,David,Mobile Phone,Mobile Device,Setting Up Of Whatsapp Voting Pole,Voting Pole Successfully Activated,,David,Resolved,,Cybersecurity & Access Control
 2026-07-30,Thursday,13:30:52,Admin,Admin Staff,Desktop,All In One,Rearranging Of Scattered File,Files Successfully Arranged,,David,Resolved,,Cybersecurity & Access Control
 2026-07-30,Thursday,13:30:58,,,,,,,,,Resolved,,Cybersecurity & Access Control
 2026-07-30,Thursday,13:35:52,Hr,Deputy Director Hr,Hp Printer,Hp Laser Jet 2055,Ink Replacement And Printer Servicing,Replaced Printer Ink,Ink,David,Resolved,,Cybersecurity & Access Control
 2026-07-30,Thursday,14:48:21,Servicom,Servicom Staff,Mobile Device,Mobile,Applying Signature On An Online Form,Signature Applied,,David,Resolved,Signature Successfully Applied,Cybersecurity & Access Control
-2026-07-30,Thursday,14:53:07,Human Resource,Hr Staff,Hp,Hp Laptop,Mouse Pad Not Functional.,Reboot System,None,David,Resolved,Mouse Pad Functional After System Reboot,Hardware & Asset Management
+2026-07-30,Thursday,14:53:07,Human Resource,Hr Staff,Hp,Hp Laptop,Mouse Pad Not Functional.,Reboot System,,David,Resolved,Mouse Pad Functional After System Reboot,Hardware & Asset Management
