@@ -35,7 +35,7 @@ Date,Day,Time,Department,Reported By,System ID,Description,Problem,Action,Parts,
 2026-07-06,Monday,14:23:18,Hrm,Dhr Office,"Sn: Cnd1150Ytx, System Id: 876D",Dhr Elitebook X360 1040 G7 Notebook Pc Core I7,System Is Not Coming Up,Checking The System Motherboards And The Hardwares,The Ssd,"Felix, Sunday, Okon",Pending,Not Resolved,Hardware & Asset Management
 2026-07-06,Monday,14:30:30,Human Resource,,,,,Ict Asset Inventory,,Aisha Rufa'I Adamu,Pending,,Hardware & Asset Management
 2026-07-06,Monday,15:21:50,Dhr Office,Dhr,All In One,All-In-One,,Checking If The System Can Come On,Hdd,"Felix Sunday,Okon",Resolved,,Hardware & Asset Management
-2026-07-10,Friday,12:16:01,HR,HR staff,Hp,Laptop ,Document Editing ,Document Edited,None,David,Resolved,,Software & Applications
+2026-07-10,Friday,12:16:01,Hr,Hr Staff,Hp,Laptop,Document Editing,Document Edited,,David,Resolved,,Software & Applications
 2026-07-13,Monday,14:31:47,,,,,,Wrote A Memo To Dg To Invite Transnet Data And Tech Limited For A Live Demonstration Of Their Services,,Aisha Rufa'I Adamu,Resolved,,Software & Applications
 2026-07-17,Friday,16:15:29,Admin,Admin,,,,Registration Of Compro 2026,,Felix Sunday Okon,Resolved,Compro Registration Completed,Database Management
 2026-07-17,Friday,16:17:20,Operations,Faith Okafor,,,,Retrieving Of Tax Identification Number,,Felix Sunday Okon,Resolved,Retrieve Successfully,Cybersecurity & Access Control
@@ -48,3 +48,4 @@ Date,Day,Time,Department,Reported By,System ID,Description,Problem,Action,Parts,
 2026-07-30,Thursday,13:35:52,Hr,Deputy Director Hr,Hp Printer,Hp Laser Jet 2055,Ink Replacement And Printer Servicing,Replaced Printer Ink,Ink,David,Resolved,,Cybersecurity & Access Control
 2026-07-30,Thursday,14:48:21,Servicom,Servicom Staff,Mobile Device,Mobile,Applying Signature On An Online Form,Signature Applied,,David,Resolved,Signature Successfully Applied,Cybersecurity & Access Control
 2026-07-30,Thursday,14:53:07,Human Resource,Hr Staff,Hp,Hp Laptop,Mouse Pad Not Functional.,Reboot System,,David,Resolved,Mouse Pad Functional After System Reboot,Hardware & Asset Management
+2026-08-07,Friday,16:01:00,NATIONAL BOARD FOR TECNOLOGY INCUBATION,,,,,"Taking part in the NextGen Innovation challenge 2026 Edition, and making sure all the slides where properly arrange for presentation.",,"Felix, Madu, Stephen and DD",Resolved,,Cybersecurity & Access Control
