@@ -53,5 +53,6 @@ Date,Day,Time,Department,Reported By,System ID,Description,Problem,Action,Parts,
 2026-09-22,Tuesday,12:12:00,,Post Incubation Staff,Mobile Device And Smartwatch,,Needed To Link  Her Smartwatch To Her Mobile Device.,Smartwatch Linked To Mobile Device.,,David,Resolved,Smartwatch'S Application Was Downloaded On Mobile Device For Linking.,Hardware & Asset Management
 2026-09-22,Tuesday,14:26:00,Hr,Mrs Amina Hr,Dell,Laptop,Pc Whatsapp App Was Not Launching.,"After Failing To Boot The Whatsapp Properly, I Restarted The Pc Which Solved The Problem.",,"Alameen, David",Resolved,Whatsapp Now Logged In And Working Properly.,Software & Applications
 2026-09-22,Tuesday,14:28:00,Hr,Mrs Amina Hr,Dell,Laptop,Pc Printers Drivers Werent Working.,Deleted Old Drivers And Redownloaded New Ones.,,Alameen,Resolved,Pc Now Connects To Printer Well And Prints!,Cybersecurity & Access Control
-2026-09-23,Wednesday,12:16:00,All departments ,Victoria ,,,NBTI Ict inventory was computed,NBTI Ict inventory was computed ,,Victoria,Resolved,,Database Management
-2026-09-24,Thursday,10:11:00,Hr,Hr Staff,Desktop,,The Desktop Setup Needed To Be Relocation Due To Faulty Work Area.,Desktop Setup Relocated,None,David,Resolved,,Hardware & Asset Management
+2026-09-23,Wednesday,12:16:00,All Departments,Victoria,,,Nbti Ict Inventory Was Computed,Nbti Ict Inventory Was Computed,,Victoria,Resolved,,Database Management
+2026-09-24,Thursday,10:11:00,Hr,Hr Staff,Desktop,,The Desktop Setup Needed To Be Relocation Due To Faulty Work Area.,Desktop Setup Relocated,,David,Resolved,,Hardware & Asset Management
+2026-09-24,Thursday,12:16:00,,,,,,,,,Resolved,,Cybersecurity & Access Control
